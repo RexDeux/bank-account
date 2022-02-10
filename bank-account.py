@@ -19,7 +19,13 @@ class SavingsAccount(Account):
         self.interestRate = interestRate
         
 
-    def interestAmmount(self):
+    def interestAmount(self):
         return(self.interestRate * self.balance / 100)
 
 demo1 = SavingsAccount("Nuno", 10000, 2.5)
+print("Initial Balance:", demo1.getBalance())
+demo1.withdrawl(2500)
+print("Balance after withdrawal:", demo1.getBalance())
+demo1.deposit(500)
+print("Balance after deposit:", demo1.getBalance())
+print("Interest on current balance:", demo1.interestAmount())
