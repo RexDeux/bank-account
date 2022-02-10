@@ -1,4 +1,4 @@
-from crypto import 
+from crypto import CoinMarketCap
 
 class Account:
     def __init__(self, title=None, balance=0):

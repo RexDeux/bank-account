@@ -1,12 +1,14 @@
 from requests import Request, Session
+import requests
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import config
 from twython import Twython, TwythonError
 
-def CoinMarketCap():
+def CoinMarketCap(request):
 
     coin = Twython(config.api_key, config.api_secret, config.access_token, config.token_secret)
+    name =  []
     url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     parameters = {
     'start':'1',
@@ -22,8 +24,11 @@ def CoinMarketCap():
     session.headers.update(headers)
 
     try:
-    response = session.get(url, params=parameters)
-    data = json.loads(response.text)
-    print(data)
+        response = session.get(url, params=parameters)
+        data = json.loads(response.text)
+        print(data)
     except (ConnectionError, Timeout, TooManyRedirects) as e:
-    print(e)
+        print(e)
+
+    a = requests.get(url, headers=headers )
+    return(a.status_code)
