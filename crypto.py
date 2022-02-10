@@ -3,6 +3,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import config
 from twython import Twython, TwythonError
+
 def CoinMarketCap():
 
     coin = Twython(config.api_key, config.api_secret, config.access_token, config.token_secret)
