@@ -2,7 +2,6 @@ class Account:
     def __init__(self, title=None, balance=0):
         self.title = title
         self.balance = balance
-        pass
 
     def getBalance(self):
         return self.balance
@@ -15,12 +14,12 @@ class Account:
 
         
 class SavingsAccount(Account):
-    def __init__(self, title=None, balance=None, interestRate= 0):
+    def __init__(self, title=None, balance=0, interestRate= 0):
         super().__init__(title, balance)
         self.interestRate = interestRate
         
 
-    def interestAmmount(self, balance, interestRate, interest_ammount):
+    def interestAmmount(self):
         return(self.interestRate * self.balance / 100)
 
 demo1 = SavingsAccount("Nuno", 10000, 2.5)
