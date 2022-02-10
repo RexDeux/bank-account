@@ -15,7 +15,7 @@ def CoinMarketCap():
     }
     headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': config.api_key ,
+    'X-CMC_PRO_API_KEY': SECRET-API-KEY ,
     }
 
     session = Session()
