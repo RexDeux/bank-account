@@ -1,3 +1,5 @@
+from crypto import CoinMarketCap
+
 class Account:
     def __init__(self, title=None, balance=0):
         self.title = title
@@ -21,6 +23,7 @@ class SavingsAccount(Account):
 
     def interestAmount(self):
         return(self.interestRate * self.balance / 100)
+    pass
 
 demo1 = SavingsAccount("Nuno", 10000, 2.5)
 print("Initial Balance:", demo1.getBalance())
