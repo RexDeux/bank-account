@@ -31,4 +31,9 @@ def CoinMarketCap(request):
         print(e)
 
     a = requests.get(url, headers=headers )
-    return(a.status_code)
+    #return(a.status_code)
+
+    for id in ids:
+        
+    {"data": [{"id": 1,}}
+    a = requests.get(url.format(id)).json()
