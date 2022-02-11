@@ -5,11 +5,15 @@ import json
 import config
 from twython import Twython, TwythonError
 
-def CoinMarketCap(request):
 
+def CoinMarketCap(request):
     coin = Twython(config.api_key, config.api_secret, config.access_token, config.token_secret)
-    name =  []
     url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+    
+    id = '1'
+    #ids = Id.objects.all()
+
+    coin_data = []
     parameters = {
     'start':'1',
     'limit':'5000',
@@ -32,8 +36,16 @@ def CoinMarketCap(request):
 
     a = requests.get(url, headers=headers )
     #return(a.status_code)
+    id_data = {
+                'city': city.name,
+                'temperature': a['main']['temp'],
+                'temperature2': a['main']['feels_like'],
+                'description': a['weather'][0]['description'],
+                'icon': a['weather'][0]['icon'],
+                'coordinate1': a['coord']['lon'],
+                'coordinate2': a['coord']['lat'],
+                'zone': a['sys']['country']
 
-    for id in ids:
-        
-    {"data": [{"id": 1,}}
-    a = requests.get(url.format(id)).json()
+            }
+
+    coin_data.append(id_data)
