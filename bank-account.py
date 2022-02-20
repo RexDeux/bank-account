@@ -1,3 +1,4 @@
+from flask import request
 from crypto import CoinMarketCap
 
 class Account:
