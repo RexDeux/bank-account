@@ -51,4 +51,4 @@ def CoinMarketCap(request):
 
         coin_data.append(id_data)
         
-    return coin_data
+    print(coin_data)
