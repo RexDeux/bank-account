@@ -23,7 +23,7 @@ class Twitter():
     search = GoogleSearch(params)
     results = search.get_dict()
 
-    twitter_results = results['twitter_results']
+    twitter = results['twitter_results']
     tweets = results['twitter_results']['tweets']
     #print(twitter_results)
     print(tweets)

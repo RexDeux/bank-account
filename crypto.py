@@ -8,10 +8,9 @@ from twython import Twython, TwythonError
 
 def CoinMarketCap(request):
     coin = Twython(config.api_key, config.api_secret, config.access_token, config.token_secret)
-    url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+    url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/map'
     
-    #id = '1'
-    #ids = Id.objects.all()
+    id = '1'
     coin_data = []
     ids = id.objects.all()
 
@@ -35,20 +34,20 @@ def CoinMarketCap(request):
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)
 
+    a = requests.get(url, headers=headers )
+
     for id in ids:
+        symbol = entry['symbol']
         
-        a = requests.get(url, headers=headers )
-        #return(a.status_code)
-        id_data = {
-                    'id': id.name,
-                    'rank': a['main']['rank'],
-                    'symbol': a['main']['symbol'],
-                    'slug': a['weather'][0]['slug'],
-                    'is_active': a['weather'][0]['is_active'],
-                    'first_historical_date': a['first_historical_date'],
-                    'last_historical_date': a['lat'],
-                    }
+        #return(entry.status_code)
+        id: ['id']
+        rank: entry['main']['rank']
+        symbol: entry['main']['symbol']
+        slug: entry['weather'][0]['slug']
+        #is_active: entry['weather'][0]['is_active'],
+        #first_historical_date: entry['first_historical_date'],
+        #last_historical_date: entry['lat'],
 
         coin_data.append(id_data)
         
-    print(coin_data)
+    print(symbol)
