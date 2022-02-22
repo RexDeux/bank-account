@@ -1,5 +1,5 @@
 from flask import request
-from crypto import CoinMarketCap
+from crypto import *
 
 class Account:
     def __init__(self, title=None, balance=0):
